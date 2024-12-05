@@ -16,8 +16,8 @@ public class Grocery {
     this.pricePerUnit = pricePerUnit;
   }
 
-  public boolean isExpired() {
-    return LocalDate.now().isAfter(expirationDate);
+  public boolean isExpired(LocalDate currentDate) {
+    return currentDate.isAfter(expirationDate);
   }
 
   public double getTotalValue() {
