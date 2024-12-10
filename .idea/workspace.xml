@@ -1,35 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="c231fbc9-31bc-4ab1-8606-fd572b43f055" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+    <list default="true" id="43532a49-cf72-4680-85d2-fd3449b749ba" name="Changes" comment="create Recipie class&#10;add different recipie methods&#10;add different recipie cases&#10;add recipies and cookbook">
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/Cookbook.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
-  <component name="ProjectId" id="2o9E43UMctDEnOb85biSPK4N5n6" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2o9EPukFoO73dThJUv8uqkOnYSi" />
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Bruker/OneDrive - NTNU/Skrivebord/idatt1003-mappe-2024-vetnil1",
+    "last_opened_file_path": "C:/Users/Bruker/OneDrive - NTNU/Skrivebord/flyttTest",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.sync",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Bruker\OneDrive - NTNU\Skrivebord\idatt1003-mappe-2024-vetnil1\foodWaste" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -41,16 +64,73 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c231fbc9-31bc-4ab1-8606-fd572b43f055" name="Changes" comment="" />
-      <created>1730273196689</created>
+      <changelist id="43532a49-cf72-4680-85d2-fd3449b749ba" name="Changes" comment="" />
+      <created>1730273376196</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1730273196689</updated>
-      <workItem from="1730273197772" duration="177000" />
+      <updated>1730273376196</updated>
+      <workItem from="1730273377277" duration="2193000" />
+      <workItem from="1730381564115" duration="257000" />
+      <workItem from="1730381828952" duration="312000" />
+      <workItem from="1730382290920" duration="226000" />
+      <workItem from="1730382524453" duration="204000" />
+      <workItem from="1730383383450" duration="897000" />
+      <workItem from="1730733031435" duration="15002000" />
+      <workItem from="1731628406096" duration="614000" />
+      <workItem from="1733398196662" duration="20133000" />
+      <workItem from="1733835687924" duration="2064000" />
     </task>
+    <task id="LOCAL−00001" summary="add test folder and pom.xml. fix .gitignore">
+      <option name="closed" value="true" />
+      <created>1730275026787</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1730275026787</updated>
+    </task>
+    <task id="LOCAL−00002" summary="add google check style and README again">
+      <option name="closed" value="true" />
+      <created>1730383705865</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1730383705865</updated>
+    </task>
+    <task id="LOCAL−00003" summary="add FoodStorage, Grocery and GroceryManagementSystem">
+      <option name="closed" value="true" />
+      <created>1730892664407</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1730892664407</updated>
+    </task>
+    <task id="LOCAL−00004" summary="feat: Update FoodStorage to manage multiple groceries with the same name&#10;&#10;- Change FoodStorage from using `Map&lt;String, Grocery&gt;` to `List&lt;Grocery&gt;` to support multiple groceries with the same name but different expiration dates.&#10;- Modify `addGroceries()` to append new groceries instead of replacing existing ones.&#10;- Update `removeGroceries()` to find and remove the specified quantity, handling only the first match with the given name.&#10;- Modify `listGroceries()` to display only non-expired groceries.&#10;- Add a warning message in `listGroceries()` if there are expired items in the storage.&#10;- Update `getTotalValue()` to exclude the value of expired groceries.&#10;- Simplify `listGroceries()` to iterate through the list, print non-expired items, and provide a warning if any expired items exist.&#10;- Adjust `GroceryManagementSystem` to pass `currentDate` to the updated methods where needed.&#10;- Add method to change current date&#10;These changes enhance the program by supporting multiple groceries of the same name, properly managing expiration dates, and providing clearer output to the user regarding expired items.">
+      <option name="closed" value="true" />
+      <created>1733408855484</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1733408855484</updated>
+    </task>
+    <task id="LOCAL−00005" summary="create Recipie class&#10;add different recipie methods&#10;add different recipie cases&#10;add recipies and cookbook">
+      <option name="closed" value="true" />
+      <created>1733589822783</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1733589822783</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add test folder and pom.xml. fix .gitignore" />
+    <MESSAGE value="add google check style and README again" />
+    <MESSAGE value="add FoodStorage, Grocery and GroceryManagementSystem" />
+    <MESSAGE value="feat: Update FoodStorage to manage multiple groceries with the same name&#10;&#10;- Change FoodStorage from using `Map&lt;String, Grocery&gt;` to `List&lt;Grocery&gt;` to support multiple groceries with the same name but different expiration dates.&#10;- Modify `addGroceries()` to append new groceries instead of replacing existing ones.&#10;- Update `removeGroceries()` to find and remove the specified quantity, handling only the first match with the given name.&#10;- Modify `listGroceries()` to display only non-expired groceries.&#10;- Add a warning message in `listGroceries()` if there are expired items in the storage.&#10;- Update `getTotalValue()` to exclude the value of expired groceries.&#10;- Simplify `listGroceries()` to iterate through the list, print non-expired items, and provide a warning if any expired items exist.&#10;- Adjust `GroceryManagementSystem` to pass `currentDate` to the updated methods where needed.&#10;- Add method to change current date&#10;These changes enhance the program by supporting multiple groceries of the same name, properly managing expiration dates, and providing clearer output to the user regarding expired items." />
+    <MESSAGE value="create Recipie class&#10;add different recipie methods&#10;add different recipie cases&#10;add recipies and cookbook" />
+    <option name="LAST_COMMIT_MESSAGE" value="create Recipie class&#10;add different recipie methods&#10;add different recipie cases&#10;add recipies and cookbook" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
