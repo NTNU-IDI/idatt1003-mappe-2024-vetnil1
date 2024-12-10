@@ -38,8 +38,7 @@ public class Recipe {
   }
 
 
-  @Override
-  public String toString() {
+  public String getPrettyString() {
     StringBuilder sb = new StringBuilder("Recipe: " + name + "\nIngredients:\n");
     for (Grocery ingredient : ingredients) {
       sb.append("- ").append(ingredient.getName()).append(": ").append(ingredient.getQuantity()).append(" ").append(ingredient.getUnit()).append("\n");
