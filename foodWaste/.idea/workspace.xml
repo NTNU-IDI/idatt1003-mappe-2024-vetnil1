@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43532a49-cf72-4680-85d2-fd3449b749ba" name="Changes" comment="Refactor GMS class to TUI class&#10;add MC class&#10;add candidate number in README">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/MenuCases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/MenuCases.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/Recipe.java" afterDir="false" />
-    </list>
+    <list default="true" id="43532a49-cf72-4680-85d2-fd3449b749ba" name="Changes" comment="add cookbook class" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,7 +18,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -55,123 +51,6 @@
       <recent name="C:\Users\Bruker\OneDrive - NTNU\Skrivebord\idatt1003-mappe-2024-vetnil1\foodWaste" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.idi.idatt.Main" />
-      <module name="foodWaste" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.ntnu.idi.idatt.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="idatt1003-mappe-2024-vetnil1" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="idatt1003-mappe-2024-vetnil1" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="idatt1003-mappe-2024-vetnil1" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="Python.FlaskServer">
-      <module name="idatt1003-mappe-2024-vetnil1" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <module name="idatt1003-mappe-2024-vetnil1" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="docs" factoryName="Docutils task">
-      <module name="idatt1003-mappe-2024-vetnil1" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="docutils_input_file" value="" />
-      <option name="docutils_output_file" value="" />
-      <option name="docutils_params" value="" />
-      <option name="docutils_task" value="" />
-      <option name="docutils_open_in_browser" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="docs" factoryName="Sphinx task">
-      <module name="idatt1003-mappe-2024-vetnil1" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="docutils_input_file" value="" />
-      <option name="docutils_output_file" value="" />
-      <option name="docutils_params" value="" />
-      <option name="docutils_task" value="" />
-      <option name="docutils_open_in_browser" value="false" />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -197,8 +76,7 @@
       <workItem from="1730733031435" duration="15002000" />
       <workItem from="1731628406096" duration="614000" />
       <workItem from="1733398196662" duration="20133000" />
-      <workItem from="1733835687924" duration="2064000" />
-      <workItem from="1733839129295" duration="18073000" />
+      <workItem from="1733835687924" duration="3452000" />
     </task>
     <task id="LOCAL−00001" summary="add test folder and pom.xml. fix .gitignore">
       <option name="closed" value="true" />
@@ -235,12 +113,12 @@
       <option name="presentableId" value="LOCAL−00005" />
       <updated>1733589822783</updated>
     </task>
-    <task id="LOCAL−00006" summary="Refactor GMS class to TUI class&#10;add MC class&#10;add candidate number in README">
+    <task id="LOCAL−00006" summary="add cookbook class">
       <option name="closed" value="true" />
-      <created>1733851096639</created>
+      <created>1733838443069</created>
       <option name="number" value="LOCAL−00006" />
       <option name="presentableId" value="LOCAL−00006" />
-      <updated>1733851096639</updated>
+      <updated>1733838443069</updated>
     </task>
     <option name="localTasksCounter" value="7" />
     <servers />
@@ -254,8 +132,8 @@
     <MESSAGE value="add FoodStorage, Grocery and GroceryManagementSystem" />
     <MESSAGE value="feat: Update FoodStorage to manage multiple groceries with the same name&#10;&#10;- Change FoodStorage from using `Map&lt;String, Grocery&gt;` to `List&lt;Grocery&gt;` to support multiple groceries with the same name but different expiration dates.&#10;- Modify `addGroceries()` to append new groceries instead of replacing existing ones.&#10;- Update `removeGroceries()` to find and remove the specified quantity, handling only the first match with the given name.&#10;- Modify `listGroceries()` to display only non-expired groceries.&#10;- Add a warning message in `listGroceries()` if there are expired items in the storage.&#10;- Update `getTotalValue()` to exclude the value of expired groceries.&#10;- Simplify `listGroceries()` to iterate through the list, print non-expired items, and provide a warning if any expired items exist.&#10;- Adjust `GroceryManagementSystem` to pass `currentDate` to the updated methods where needed.&#10;- Add method to change current date&#10;These changes enhance the program by supporting multiple groceries of the same name, properly managing expiration dates, and providing clearer output to the user regarding expired items." />
     <MESSAGE value="create Recipie class&#10;add different recipie methods&#10;add different recipie cases&#10;add recipies and cookbook" />
-    <MESSAGE value="Refactor GMS class to TUI class&#10;add MC class&#10;add candidate number in README" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor GMS class to TUI class&#10;add MC class&#10;add candidate number in README" />
+    <MESSAGE value="add cookbook class" />
+    <option name="LAST_COMMIT_MESSAGE" value="add cookbook class" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
