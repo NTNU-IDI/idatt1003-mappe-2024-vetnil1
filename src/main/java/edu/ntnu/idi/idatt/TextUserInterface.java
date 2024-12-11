@@ -34,6 +34,7 @@ public class TextUserInterface {
     System.out.println("12. Pick a recipe and scale by portion size");
     System.out.println("13. Add demo data");
     System.out.println("14. Show recipe");
+    System.out.println("15. Open the cookbook");
     System.out.println("0. Exit \n");
     System.out.println("Current date: " + currentDate + "\n");
   }
@@ -93,6 +94,9 @@ public class TextUserInterface {
           break;
         case 14:
           menuCases.showRecipe();
+          break;
+        case 15:
+          menuCases.showCookbook();
           break;
         case 0:
           System.out.println("Exiting...");

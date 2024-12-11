@@ -255,7 +255,7 @@ public class MenuCases {
   }
 
   public void addDummyData() {
-    System.out.println(" ");
+    System.out.println();
     System.out.println("Demo data added. Now you have a couple ingredients and recipes to work with. \n");
     // Pre-set items
     foodStorage.addGrocery(new Grocery("Milk", 1.0, "liters",
@@ -359,5 +359,18 @@ public class MenuCases {
     }
     return true; // All ingredients are available in sufficient quantity
   }
+
+  public void showCookbook() {
+    System.out.println("Recipes in the cookbook:");
+    if (cookbook.getRecipes().isEmpty()) {
+      System.out.println("The cookbook is empty.\n");
+    } else {
+      for (Recipe recipe : cookbook.getRecipes()) {
+        System.out.println("- " + recipe.getName());
+      }
+      System.out.println(); // Blank line for better formatting
+    }
+  }
+
 
 }

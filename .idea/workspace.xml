@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43532a49-cf72-4680-85d2-fd3449b749ba" name="Changes" comment="Refactor GMS class to TUI class&#10;add MC class&#10;add candidate number in README">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="43532a49-cf72-4680-85d2-fd3449b749ba" name="Changes" comment="fixed portion sizes&#10;add description and procedure of recipes">
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/MenuCases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/MenuCases.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/Recipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/TextUserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/TextUserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +197,7 @@
       <workItem from="1731628406096" duration="614000" />
       <workItem from="1733398196662" duration="20133000" />
       <workItem from="1733835687924" duration="2064000" />
-      <workItem from="1733839129295" duration="18073000" />
+      <workItem from="1733839129295" duration="19047000" />
     </task>
     <task id="LOCAL−00001" summary="add test folder and pom.xml. fix .gitignore">
       <option name="closed" value="true" />
@@ -242,7 +241,14 @@
       <option name="presentableId" value="LOCAL−00006" />
       <updated>1733851096639</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL−00007" summary="fixed portion sizes&#10;add description and procedure of recipes">
+      <option name="closed" value="true" />
+      <created>1733915167113</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1733915167113</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,7 +261,8 @@
     <MESSAGE value="feat: Update FoodStorage to manage multiple groceries with the same name&#10;&#10;- Change FoodStorage from using `Map&lt;String, Grocery&gt;` to `List&lt;Grocery&gt;` to support multiple groceries with the same name but different expiration dates.&#10;- Modify `addGroceries()` to append new groceries instead of replacing existing ones.&#10;- Update `removeGroceries()` to find and remove the specified quantity, handling only the first match with the given name.&#10;- Modify `listGroceries()` to display only non-expired groceries.&#10;- Add a warning message in `listGroceries()` if there are expired items in the storage.&#10;- Update `getTotalValue()` to exclude the value of expired groceries.&#10;- Simplify `listGroceries()` to iterate through the list, print non-expired items, and provide a warning if any expired items exist.&#10;- Adjust `GroceryManagementSystem` to pass `currentDate` to the updated methods where needed.&#10;- Add method to change current date&#10;These changes enhance the program by supporting multiple groceries of the same name, properly managing expiration dates, and providing clearer output to the user regarding expired items." />
     <MESSAGE value="create Recipie class&#10;add different recipie methods&#10;add different recipie cases&#10;add recipies and cookbook" />
     <MESSAGE value="Refactor GMS class to TUI class&#10;add MC class&#10;add candidate number in README" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor GMS class to TUI class&#10;add MC class&#10;add candidate number in README" />
+    <MESSAGE value="fixed portion sizes&#10;add description and procedure of recipes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed portion sizes&#10;add description and procedure of recipes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
