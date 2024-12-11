@@ -21,6 +21,15 @@ public class Recipe {
 
   // Add an ingredient to the recipe
   public void addIngredient(String ingredientName, double quantity, String unit) {
+    if (ingredientName == null || ingredientName.isBlank()) {
+      throw new IllegalArgumentException("Recipe name should not be null");
+    }
+    if (quantity <= 0) {
+      throw new IllegalArgumentException("Recipe quantity cannot be zero or less");
+    }
+    if (unit == null || unit.isBlank()) {
+      throw new IllegalArgumentException("Recipe unit cannot be null");
+    }
     Grocery ingredient = new Grocery(ingredientName, quantity, unit, null, 0); // Expiration date and price are irrelevant here
     ingredients.add(ingredient);
   }

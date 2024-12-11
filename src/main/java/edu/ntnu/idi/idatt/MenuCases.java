@@ -125,7 +125,9 @@ public class MenuCases {
     do {
       System.out.println("Enter ingredient name:");
       String ingredientName = scanner.nextLine();
-
+      if (ingredientName == null || ingredientName.isBlank()) {
+        throw new IllegalArgumentException("Recipe name should not be null");
+      }
       System.out.println("Enter quantity:");
       double quantity = scanner.nextDouble();
       scanner.nextLine();

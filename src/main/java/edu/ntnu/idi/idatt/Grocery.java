@@ -37,6 +37,9 @@ public class Grocery {
   }
 
   public void setQuantity(double quantity) {
+    if(quantity <= 0) {
+      throw new IllegalArgumentException("Quantity must be greater than zero");
+    }
     this.quantity = quantity;
   }
 
@@ -45,6 +48,9 @@ public class Grocery {
   }
 
   public void setUnit(String unit) {
+    if(unit == null) {
+      throw new IllegalArgumentException("Unit cannot be null");
+    }
     this.unit = unit;
   }
 
@@ -53,6 +59,9 @@ public class Grocery {
   }
 
   public void setExpirationDate(LocalDate expirationDate) {
+    if(expirationDate == null) {
+      throw new IllegalArgumentException("Expiration date cannot be null");
+    }
     this.expirationDate = expirationDate;
   }
 
@@ -61,6 +70,9 @@ public class Grocery {
   }
 
   public void setPricePerUnit(double pricePerUnit) {
+    if(pricePerUnit <= 0) {
+      throw new IllegalArgumentException("Price per unit must be greater than zero");
+    }
     this.pricePerUnit = pricePerUnit;
   }
 
