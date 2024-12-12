@@ -1,5 +1,11 @@
 package edu.ntnu.idi.idatt;
 import java.time.LocalDate;
+/*
+imports LocalDate to be able to extract the current date when the program starts
+*/
+/*
+create Grocery class
+*/
 
 public class Grocery {
   private String name;
@@ -8,6 +14,9 @@ public class Grocery {
   private LocalDate expirationDate;
   private double pricePerUnit;
 
+/*
+Grocery constructor
+*/
   public Grocery(String name, double quantity, String unit, LocalDate expirationDate, double pricePerUnit) {
     this.name = name;
     this.quantity = quantity;
@@ -15,21 +24,31 @@ public class Grocery {
     this.expirationDate = expirationDate;
     this.pricePerUnit = pricePerUnit;
   }
-
+/*
+boolean method to check if the current applied date is after expiration date of a grocery
+*/
   public boolean isExpired(LocalDate currentDate) {
     return currentDate.isAfter(expirationDate);
   }
-
+/*
+method to calculate total value of a stored grocery,
+by multiplying the current quantity of a grocery and the price per unit of this grocery
+for example:
+you have 2 liters of milk in your fridge, and the price per liter is 10kr/liter
+this means the total value of the milk in your fridge is 20kr
+*/
   public double getTotalValue() {
     return quantity * pricePerUnit;
   }
 
+/*
+a couple different getters and setters
+there are some throws in a couple of the setters
+this is to guide the user of the program to understand
+what went wrong if they write something the program doesn't like
+ */
   public String getName() {
     return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
   }
 
   public double getQuantity() {

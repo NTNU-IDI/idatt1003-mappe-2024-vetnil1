@@ -5,12 +5,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
+/**
+*create MenuCases class
+ */
 public class MenuCases {
   private final FoodStorage foodStorage;
   private final Cookbook cookbook;
   LocalDate currentDate;
   Scanner scanner;
 
+  /**
+  *constructor MenuCases
+   */
   public MenuCases(FoodStorage foodStorage, Cookbook cookbook, LocalDate currentDate,
       Scanner scanner) {
     this.foodStorage = foodStorage;
@@ -21,12 +28,18 @@ public class MenuCases {
 
 
 
-  // Setter for currentDate
+
   public void setCurrentDate(LocalDate newDate) {
+    if (newDate == null) {
+      throw new IllegalArgumentException("Date cannot be null");
+    }
     this.currentDate = newDate;
   }
 
-  // Case 1: Add groceries
+  /**
+  *case 1 method addGroceries enables the user to input the values of a grocery
+  *they want to add to the food storage
+   */
   public void addGroceries(Scanner scanner) {
     System.out.println("Enter grocery name: ");
     String name = scanner.nextLine();
@@ -41,7 +54,8 @@ public class MenuCases {
     System.out.println("Enter expiration date (YYYY-MM-DD): ");
     LocalDate expirationDate = LocalDate.parse(scanner.nextLine());
 
-    System.out.println("Enter price per unit (e.g, NOK/kg, NOK/liter, NOK/amount (like NOK/egg)): ");
+    System.out.println("Enter price per unit (e.g, NOK/kg, NOK/liter, "
+        + "NOK/amount (like NOK/egg)): ");
     double pricePerUnit = scanner.nextDouble();
     scanner.nextLine();
 
@@ -50,7 +64,10 @@ public class MenuCases {
 
     System.out.println("Grocery added: " + name);
   }
-
+  /**
+  *case 2 method enables the user to remove a specific
+  *amount of a grocery from the food storage
+   */
   public void removeGroceries(Scanner scanner) {
     System.out.println("Enter grocery name: ");
     String name = scanner.nextLine();
@@ -66,25 +83,38 @@ public class MenuCases {
     scanner.nextLine();
 
     foodStorage.removeGroceries(name, amount);
-    System.out.println("Removed: " + amount + " " + grocery.getUnit() + " of " + name + " from food storage. \n");
+    if (amount <= 0) {
+      throw new IllegalArgumentException("Amount must be greater than zero");
+    }
+    if (amount > grocery.getQuantity()) {
+      throw new IllegalArgumentException("Amount must be less than grocery quantity");
+    }
+    System.out.println("Removed: " + amount + " "
+        + grocery.getUnit() + " of " + name + " from food storage. \n");
   }
 
-  // case 3: Remove a grocery completely
+  /**
+  *case 3 method enables the user to remove a grocery
+  *form the food storage completely just by choosing
+  *the name of the grocery
+   */
   public void removeGroceryCompletely(Scanner scanner) {
     System.out.println("Enter grocery name: ");
     String name = scanner.nextLine();
 
     Grocery grocery = foodStorage.getGrocery(name);
-    if (grocery == null) {
-      System.out.println("Grocery not found. \n");
-      return;
+    if (name == null || name.isBlank()) {
+      throw new IllegalArgumentException("Grocery cannot be null or blank");
     }
 
     foodStorage.removeGroceryCompletely(name);
     System.out.println("Grocery " + name + " removed from food storage.\n");
   }
 
-  // case 7: change current date
+ /**
+ *case 7 method enables the user to manually change
+ *the date the program uses to check for expired food
+  */
   public LocalDate changeCurrentDate(Scanner scanner) {
     System.out.print("Enter new current date (yyyy-mm-dd): ");
     String newDateStr = scanner.nextLine();
@@ -102,7 +132,10 @@ public class MenuCases {
     }
     return currentDate;
   }
-
+  /**
+  *case 9 method enables the user to create a
+  *new recipe to put in the cookbook
+   */
   public void createNewRecipe() {
     System.out.println("Enter the name of the recipe:");
     String recipeName = scanner.nextLine();
@@ -144,7 +177,11 @@ public class MenuCases {
     cookbook.addRecipe(recipe);
     System.out.println("Recipe added:\n" + recipe.getPrettyString());
   }
-
+  /**
+  *case 10 method enables the user to check if a
+  *recipe from the cookbook can be prepared from
+  *the different groceries in the food storage
+   */
   public void checkIfRecipeCanBePrepared() {
     System.out.println("Enter the name of the recipe to check:");
     String recipeName = scanner.nextLine();
@@ -166,7 +203,11 @@ public class MenuCases {
       System.out.println("You can't prepare this recipe.");
     }
   }
-
+  /**
+  *case 11 method helps the user by suggesting
+  *different recipes the user can make with the
+  *groceries already in the food storage
+   */
   public void suggestRecipes() {
     List<Recipe> suggestedRecipes = new ArrayList<>();
     for (Recipe recipe : cookbook.getRecipes()) {
@@ -184,7 +225,11 @@ public class MenuCases {
       }
     }
   }
-
+  /**
+  *case 11 method enables the user to pick a
+  *recipe from the cookbook and scale the ingredients
+  *to the wanted portion size
+   */
   public void pickAndScaleRecipe() {
     // Step 1: List all recipes
     System.out.println("Available recipes:");
@@ -226,36 +271,56 @@ public class MenuCases {
 
     // Step 4: Scale the recipe and display
     List<Grocery> scaledIngredients = chosenRecipe.scaleIngredients(newPortionSize);
-    System.out.println("Scaled recipe for " + newPortionSize + " portions of " +
-        chosenRecipe.getName() + ":");
+    System.out.println("Scaled recipe for " + newPortionSize + " portions of "
+        + chosenRecipe.getName() + ":");
     for (Grocery ingredient : scaledIngredients) {
       System.out.println("- " + ingredient.getName() + ": " + ingredient.getQuantity() + " "
           + ingredient.getUnit());
     }
   }
-
+  /**
+  *case 5 method prints out expired groceries in the food storage
+  *based on the current date which the user can manually change
+  *by using method changeCurrentDate case 7
+   */
   public void listExpiredGroceries(LocalDate currentDate) {
     System.out.println("Listing all expired groceries:");
     foodStorage.listExpiredGroceries(currentDate);
   }
-
+  /**
+  *case 4 method prints out non-expired groceries in the food storage
+  *based on the current date which the user can manually change
+  *by using method changeCurrentDate case 7
+   */
   public void listGroceries(LocalDate currentDate) {
     System.out.println("Listing all groceries in storage:");
     foodStorage.listGroceries(currentDate);
   }
-
+  /**
+  *case 8 method enables the user to search for a specific
+  *grocery in the food storage which then prints out all info
+  *about this grocery
+   */
   public void searchGroceryByName() {
     System.out.println("Enter the name of the grocery to search for:");
     String searchName = scanner.nextLine();
     foodStorage.searchGroceryByName(searchName);
   }
-
+  /**
+  *case 6 method prints out the total value of all the non-expired
+  *groceries in the food storage
+   */
   public void getTotalValue() {
     double totalValue = foodStorage.getTotalValue(currentDate);  // Get the total value from FoodStorage
     System.out.println("Total value of groceries in storage (excluding expired food): "
         + totalValue + " NOK \n");
   }
-
+  /**
+  *case 13 method adds a couple pre-set groceries and recipes to
+  *the food storage and cookbook, which might save the user some
+  *time from having to manually add every data if they want to
+  *test the program. The recipes and groceries are listed bellow
+   */
   public void addDummyData() {
     System.out.println();
     System.out.println("Demo data added. Now you have a couple ingredients and recipes to work with. \n");
@@ -275,7 +340,10 @@ public class MenuCases {
     foodStorage.addGrocery(new Grocery("Butter", 0.5, "kg",
         LocalDate.of(2024, 12, 26), 50.0));
 
-    // Pre-set recipes in the cookbook
+    /**
+     * Pre-set recipes in the cookbook
+     */
+
     Recipe pancakes = new Recipe("Pancakes");
     pancakes.setDescription("A classic breakfast dish that is light, fluffy, and delicious.");
     pancakes.setProcedure(
@@ -328,7 +396,9 @@ public class MenuCases {
     pyttIPanne.addIngredient("Pepper", 0.002, "kg");
     cookbook.addRecipe(pyttIPanne);
   }
-
+  /**
+  *case 14 method prints out all info on chosen recipe
+   */
   public void showRecipe() {
     System.out.println("Choose recipe to show:");
     String recipeName = scanner.nextLine();
@@ -342,7 +412,10 @@ public class MenuCases {
     System.out.println("Recipe Name: " + recipeName + " doesn't exist");
   }
 
-  // Check if FoodStorage contains enough ingredients for a recipe
+  /**
+  *case 10 method checks if chosen recipe can be prepared with
+  *the current groceries in the food storage
+   */
   public boolean canPrepareRecipe(Recipe recipe) {
     for (Grocery ingredient : recipe.getIngredients()) {
       double requiredQuantity = ingredient.getQuantity();
@@ -361,7 +434,10 @@ public class MenuCases {
     }
     return true; // All ingredients are available in sufficient quantity
   }
-
+  /**
+  *case 15 method prints out the names of all the available
+  *recipes in the cookbook
+   */
   public void showCookbook() {
     System.out.println("Recipes in the cookbook:");
     if (cookbook.getRecipes().isEmpty()) {
@@ -373,6 +449,32 @@ public class MenuCases {
       System.out.println(); // Blank line for better formatting
     }
   }
+
+  /**
+  *a method which enables me to test addGrocery without having to use
+  *scanner
+   */
+  public void addGrocery(String name, double quantity, String unit, LocalDate expirationDate, double pricePerUnit) {
+    if (name == null || name.isBlank()) {
+      throw new IllegalArgumentException("Grocery name must not be null or empty.");
+    }
+    if (quantity <= 0) {
+      throw new IllegalArgumentException("Quantity must be greater than 0.");
+    }
+    if (unit == null || unit.isBlank()) {
+      throw new IllegalArgumentException("Unit must not be null or empty.");
+    }
+    if (expirationDate == null || expirationDate.isBefore(LocalDate.now())) {
+      throw new IllegalArgumentException("Expiration date must not be null or in the past.");
+    }
+    if (pricePerUnit < 0) {
+      throw new IllegalArgumentException("Price per unit must be 0 or greater.");
+    }
+
+    Grocery grocery = new Grocery(name, quantity, unit, expirationDate, pricePerUnit);
+    foodStorage.addGrocery(grocery);
+  }
+
 
 
 }

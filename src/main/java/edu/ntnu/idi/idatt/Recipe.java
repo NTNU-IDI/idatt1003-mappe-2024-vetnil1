@@ -2,15 +2,28 @@ package edu.ntnu.idi.idatt;
 
 import java.util.ArrayList;
 import java.util.List;
+/*
+import ArrayList and List
+*/
+
+/*
+create class recipe
+*/
 
 public class Recipe {
   private String name;
   private String description;
   private String procedure;
   private int portionSize;
-  private List<Grocery> ingredients; // Each ingredient is a Grocery-like object with quantity and unit
+  private List<Grocery> ingredients;
+/*
+Each ingredient is a Grocery-like object with quantity and unit
+*/
 
-  // Constructor
+
+/*
+create constructor
+*/
   public Recipe(String name) {
     this.name = name;
     this.description = "";
@@ -18,8 +31,9 @@ public class Recipe {
     this.portionSize = 1; //default portion size if not specified
     this.ingredients = new ArrayList<>();
   }
-
-  // Add an ingredient to the recipe
+/*
+Add an ingredient to the recipe
+*/
   public void addIngredient(String ingredientName, double quantity, String unit) {
     if (ingredientName == null || ingredientName.isBlank()) {
       throw new IllegalArgumentException("Recipe name should not be null");
@@ -34,15 +48,18 @@ public class Recipe {
     ingredients.add(ingredient);
   }
 
-  public void addDescription(String description) {
 
-  }
-
+/*
+getter for name which is in recipe
+*/
   public String getName() {
     return name;
   }
 
   // Setters and Getters for portion size
+/*
+Setter and getter for portion size which is in recipie
+*/
   public void setPortionSize(int portionSize) {
     this.portionSize = portionSize;
   }
@@ -51,28 +68,33 @@ public class Recipe {
     return portionSize;
   }
 
-  public String getDescription() {
-    return description;
-  }
-
+/*
+setter for description of recipe
+*/
   public void setDescription(String description) {
     this.description = description;
   }
 
-  // Add the procedure to the recipe
+/*
+setter for procedure of recipe
+*/
   public void setProcedure(String procedure) {
     this.procedure = procedure;
   }
-
-  public String getProcedure() {
-    return procedure;
-  }
-
+/*
+getter for ingredients
+*/
   public List<Grocery> getIngredients() {
     return ingredients;
   }
-
+/*
+method to scale ingredients according to portion sizes
+*/
   public List<Grocery> scaleIngredients(int newPortionSize) {
+    if (newPortionSize <= 0) {
+      throw new IllegalArgumentException("New portion size must be greater than zero.");
+    }
+
     List<Grocery> scaledIngredients = new ArrayList<>();
     for (Grocery ingredient : ingredients) {
       double scaledQuantity = (ingredient.getQuantity() * newPortionSize) / portionSize;
@@ -82,8 +104,10 @@ public class Recipe {
     return scaledIngredients;
   }
 
-
-  // Pretty string for displaying the recipe
+/*
+We were not supposed to use @Overide toString,
+so had to create my own version to make the recipes look better than the standard list setup
+*/
   public String getPrettyString() {
     StringBuilder sb = new StringBuilder("Recipe: " + name + "\n");
     sb.append("Description: ").append(description).append("\n");
@@ -94,4 +118,5 @@ public class Recipe {
     sb.append("Procedure:\n").append(procedure).append("\n");
     return sb.toString();
   }
+
 }

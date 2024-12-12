@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43532a49-cf72-4680-85d2-fd3449b749ba" name="Changes" comment="add showCookbook case">
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/idi/idatt/RecipeTest.java" afterDir="false" />
+    <list default="true" id="43532a49-cf72-4680-85d2-fd3449b749ba" name="Changes" comment="add Grocery tests and some Recipe tests">
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/idi/idatt/MenuCasesTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/FoodStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/FoodStorage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/Grocery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/Grocery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/MenuCases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/MenuCases.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/Recipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/idi/idatt/GroceryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/idi/idatt/GroceryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/idi/idatt/RecipeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/idi/idatt/RecipeTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,10 +51,29 @@
     "JUnit.GroceryTest.testNegativeGroceryQuantitySetters.executor": "Run",
     "JUnit.GroceryTest.testNegativeGroceryUnitSetters.executor": "Run",
     "JUnit.GroceryTest.testPositiveGrocerySetters.executor": "Run",
+    "JUnit.MenuCasesTest.executor": "Run",
+    "JUnit.MenuCasesTest.testAddGroceriesPositive.executor": "Run",
+    "JUnit.MenuCasesTest.testAddGroceryPositive.executor": "Run",
+    "JUnit.MenuCasesTest.testRemoveGroceriesCaseInsensitive.executor": "Run",
+    "JUnit.MenuCasesTest.testRemoveGroceriesCompletelyNull.executor": "Run",
+    "JUnit.MenuCasesTest.testRemoveGroceriesEntireQuantity.executor": "Run",
+    "JUnit.MenuCasesTest.testRemoveGroceriesExceedsQuantity.executor": "Run",
+    "JUnit.MenuCasesTest.testRemoveGroceriesFromEmptyStorage.executor": "Run",
+    "JUnit.MenuCasesTest.testRemoveGroceriesInvalidQuantity.executor": "Run",
+    "JUnit.MenuCasesTest.testRemoveGroceriesPartialQuantity.executor": "Run",
+    "JUnit.MenuCasesTest.testRemoveNonExistentGrocery.executor": "Run",
+    "JUnit.MenuCasesTest.testSetCurrentDateNegativeNull.executor": "Run",
+    "JUnit.MenuCasesTest.testSetCurrentDatePositive.executor": "Run",
     "JUnit.RecipeTest.testAddIngredientNegative.executor": "Run",
     "JUnit.RecipeTest.testAddIngredientNullName.executor": "Run",
     "JUnit.RecipeTest.testAddIngredientNullUnit.executor": "Run",
     "JUnit.RecipeTest.testAddIngredientPositive.executor": "Run",
+    "JUnit.RecipeTest.testGetIngredientsPositive.executor": "Run",
+    "JUnit.RecipeTest.testGetPrettyString.executor": "Run",
+    "JUnit.RecipeTest.testPositiveGetIngredients.executor": "Run",
+    "JUnit.RecipeTest.testPositiveGetName.executor": "Run",
+    "JUnit.RecipeTest.testPositiveGetPortionSize.executor": "Run",
+    "JUnit.RecipeTest.testScaleIngredientsInvalidNewPortionSize.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
@@ -72,8 +92,21 @@
       <recent name="C:\Users\Bruker\OneDrive - NTNU\Skrivebord\idatt1003-mappe-2024-vetnil1\foodWaste" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GroceryTest.testNegativeGroceryPricePerUnitSetters">
-    <configuration name="GroceryTest.testNegativeGroceryExpirationDateSetters" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.MenuCasesTest.testRemoveGroceriesCompletelyNull">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.idi.idatt.Main" />
+      <module name="foodWaste" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.ntnu.idi.idatt.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MenuCasesTest.testRemoveGroceriesCompletelyNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="foodWaste" />
       <extension name="coverage">
         <pattern>
@@ -82,14 +115,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="edu.ntnu.idi.idatt" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.idi.idatt.GroceryTest" />
-      <option name="METHOD_NAME" value="testNegativeGroceryExpirationDateSetters" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.idi.idatt.MenuCasesTest" />
+      <option name="METHOD_NAME" value="testRemoveGroceriesCompletelyNull" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GroceryTest.testNegativeGroceryGetUnit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MenuCasesTest.testRemoveGroceriesExceedsQuantity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="foodWaste" />
       <extension name="coverage">
         <pattern>
@@ -98,14 +131,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="edu.ntnu.idi.idatt" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.idi.idatt.GroceryTest" />
-      <option name="METHOD_NAME" value="testNegativeGroceryGetUnit" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.idi.idatt.MenuCasesTest" />
+      <option name="METHOD_NAME" value="testRemoveGroceriesExceedsQuantity" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GroceryTest.testNegativeGroceryPricePerUnitSetters" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MenuCasesTest.testRemoveGroceriesFromEmptyStorage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="foodWaste" />
       <extension name="coverage">
         <pattern>
@@ -114,14 +147,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="edu.ntnu.idi.idatt" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.idi.idatt.GroceryTest" />
-      <option name="METHOD_NAME" value="testNegativeGroceryPricePerUnitSetters" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.idi.idatt.MenuCasesTest" />
+      <option name="METHOD_NAME" value="testRemoveGroceriesFromEmptyStorage" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GroceryTest.testNegativeGroceryQuantitySetters" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MenuCasesTest.testRemoveGroceriesInvalidQuantity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="foodWaste" />
       <extension name="coverage">
         <pattern>
@@ -130,24 +163,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="edu.ntnu.idi.idatt" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.idi.idatt.GroceryTest" />
-      <option name="METHOD_NAME" value="testNegativeGroceryQuantitySetters" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GroceryTest.testNegativeGroceryUnitSetters" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="foodWaste" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.ntnu.idi.idatt.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.idi.idatt" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.idi.idatt.GroceryTest" />
-      <option name="METHOD_NAME" value="testNegativeGroceryUnitSetters" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.idi.idatt.MenuCasesTest" />
+      <option name="METHOD_NAME" value="testRemoveGroceriesInvalidQuantity" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -252,11 +269,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GroceryTest.testNegativeGroceryPricePerUnitSetters" />
-        <item itemvalue="JUnit.GroceryTest.testNegativeGroceryExpirationDateSetters" />
-        <item itemvalue="JUnit.GroceryTest.testNegativeGroceryUnitSetters" />
-        <item itemvalue="JUnit.GroceryTest.testNegativeGroceryQuantitySetters" />
-        <item itemvalue="JUnit.GroceryTest.testNegativeGroceryGetUnit" />
+        <item itemvalue="JUnit.MenuCasesTest.testRemoveGroceriesCompletelyNull" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.MenuCasesTest.testRemoveGroceriesInvalidQuantity" />
+        <item itemvalue="JUnit.MenuCasesTest.testRemoveGroceriesExceedsQuantity" />
+        <item itemvalue="JUnit.MenuCasesTest.testRemoveGroceriesFromEmptyStorage" />
       </list>
     </recent_temporary>
   </component>
@@ -286,7 +303,7 @@
       <workItem from="1731628406096" duration="614000" />
       <workItem from="1733398196662" duration="20133000" />
       <workItem from="1733835687924" duration="2064000" />
-      <workItem from="1733839129295" duration="31015000" />
+      <workItem from="1733839129295" duration="42054000" />
     </task>
     <task id="LOCAL−00001" summary="add test folder and pom.xml. fix .gitignore">
       <option name="closed" value="true" />
@@ -344,7 +361,14 @@
       <option name="presentableId" value="LOCAL−00008" />
       <updated>1733915794896</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL−00009" summary="add Grocery tests and some Recipe tests">
+      <option name="closed" value="true" />
+      <created>1733942586835</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1733942586835</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,7 +383,8 @@
     <MESSAGE value="Refactor GMS class to TUI class&#10;add MC class&#10;add candidate number in README" />
     <MESSAGE value="fixed portion sizes&#10;add description and procedure of recipes" />
     <MESSAGE value="add showCookbook case" />
-    <option name="LAST_COMMIT_MESSAGE" value="add showCookbook case" />
+    <MESSAGE value="add Grocery tests and some Recipe tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Grocery tests and some Recipe tests" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
