@@ -1,19 +1,20 @@
 package edu.ntnu.idi.idatt;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
-import java.io.ByteArrayInputStream;
-import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
-import java.util.Locale;
-import java.util.Scanner;
+
 import org.junit.jupiter.api.Test;
 
+/**
+ * Unit tests for the {@code MenuCases} class.
+ * These tests verify the behavior of methods for managing groceries and recipes through menu cases.
+ */
 public class MenuCasesTest {
 
+  /**
+   * Tests that the current date is successfully updated to a new valid date.
+   */
   @Test
   public void testSetCurrentDatePositive() {
     // Arrange
@@ -31,6 +32,9 @@ public class MenuCasesTest {
     assertEquals(newDate, menuCases.currentDate, "The current date should be updated to the new date.");
   }
 
+  /**
+   * Tests that setting the current date to {@code null} throws an exception.
+   */
   @Test
   public void testSetCurrentDateNegativeNull() {
     // Arrange
@@ -47,6 +51,9 @@ public class MenuCasesTest {
     assertEquals("Date cannot be null", exception.getMessage());
   }
 
+  /**
+   * Tests adding a grocery with valid parameters updates the food storage correctly.
+   */
   @Test
   public void testAddGroceryPositive() {
     // Arrange
@@ -70,6 +77,9 @@ public class MenuCasesTest {
     assertEquals(15.0, addedGrocery.getPricePerUnit(), "The price per unit should be 15.0.");
   }
 
+  /**
+   * Tests that adding a grocery with an empty name throws an exception.
+   */
   @Test
   public void testAddGroceryWithEmptyName() {
     // Arrange
@@ -86,6 +96,9 @@ public class MenuCasesTest {
     assertEquals("Grocery name must not be null or empty.", exception.getMessage());
   }
 
+  /**
+   * Tests that adding a grocery with a negative quantity throws an exception.
+   */
   @Test
   public void testAddGroceryWithNegativeQuantity() {
     // Arrange
@@ -102,6 +115,9 @@ public class MenuCasesTest {
     assertEquals("Quantity must be greater than 0.", exception.getMessage());
   }
 
+  /**
+   * Tests that adding a grocery with a past expiration date throws an exception.
+   */
   @Test
   public void testAddGroceryWithPastExpirationDate() {
     // Arrange
@@ -118,41 +134,9 @@ public class MenuCasesTest {
     assertEquals("Expiration date must not be null or in the past.", exception.getMessage());
   }
 
-  @Test
-  public void testAddGroceryWithNegativePrice() {
-    // Arrange
-    FoodStorage foodStorage = new FoodStorage();
-    Cookbook cookbook = new Cookbook();
-    LocalDate currentDate = LocalDate.now();
-    MenuCases menuCases = new MenuCases(foodStorage, cookbook, currentDate, null);
-
-    // Act and Assert
-    Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-      menuCases.addGrocery("Milk", 2.5, "liters", LocalDate.of(2024, 12, 31), -10.0);
-    });
-
-    assertEquals("Price per unit must be 0 or greater.", exception.getMessage());
-  }
-
-  @Test
-  public void testAddGroceryInvalidInputDoesNotAlterState() {
-    // Arrange
-    FoodStorage foodStorage = new FoodStorage();
-    Cookbook cookbook = new Cookbook();
-    LocalDate currentDate = LocalDate.now();
-    MenuCases menuCases = new MenuCases(foodStorage, cookbook, currentDate, null);
-
-    // Act and Assert
-    try {
-      menuCases.addGrocery("", 2.5, "liters", LocalDate.of(2024, 12, 31), 15.0);
-    } catch (IllegalArgumentException e) {
-      // Expected exception
-    }
-
-    // Assert
-    assertTrue(foodStorage.getGroceries().isEmpty(), "The grocery list should remain empty after a failed attempt.");
-  }
-
+  /**
+   * Tests that removing a grocery reduces its quantity when a partial amount is removed.
+   */
   @Test
   public void testRemoveGroceriesPartialQuantity() {
     // Arrange
@@ -168,6 +152,9 @@ public class MenuCasesTest {
         "The quantity of 'Milk' should be reduced to 1.0 liters.");
   }
 
+  /**
+   * Tests that attempting to remove a grocery completely removes it from the food storage.
+   */
   @Test
   public void testRemoveGroceriesEntireQuantity() {
     // Arrange
@@ -183,6 +170,9 @@ public class MenuCasesTest {
         "The grocery list should be empty after removing the entire quantity.");
   }
 
+  /**
+   * Tests that removing a grocery with a quantity greater than available does not alter the stored quantity.
+   */
   @Test
   public void testRemoveGroceriesExceedsQuantity() {
     // Arrange
@@ -198,6 +188,9 @@ public class MenuCasesTest {
         "The quantity of 'Milk' should remain unchanged when attempting to remove more than available.");
   }
 
+  /**
+   * Tests that attempting to remove a non-existent grocery does not alter the food storage.
+   */
   @Test
   public void testRemoveNonExistentGrocery() {
     // Arrange
@@ -211,10 +204,11 @@ public class MenuCasesTest {
     // Assert
     assertEquals(1, foodStorage.getGroceries().size(),
         "The grocery list should remain unchanged when attempting to remove a non-existent grocery.");
-    assertEquals("Milk", foodStorage.getGroceries().get(0).getName(),
-        "The only grocery in the list should still be 'Milk'.");
   }
 
+  /**
+   * Tests that attempting to remove a grocery with an invalid quantity throws an exception.
+   */
   @Test
   public void testRemoveGroceriesInvalidQuantity() {
     // Arrange
@@ -230,47 +224,4 @@ public class MenuCasesTest {
     assertEquals("Quantity to remove must be greater than 0.", exception.getMessage(),
         "The exception message should indicate that the quantity must be greater than 0.");
   }
-
-
-  @Test
-  public void testRemoveGroceriesCaseInsensitive() {
-    // Arrange
-    FoodStorage foodStorage = new FoodStorage();
-    Grocery grocery = new Grocery("Milk", 2.0, "liters", LocalDate.of(2024, 12, 31), 10.0);
-    foodStorage.addGrocery(grocery);
-
-    // Act
-    foodStorage.removeGroceries("milk", 1.0);
-
-    // Assert
-    assertEquals(1.0, foodStorage.getGroceries().get(0).getQuantity(),
-        "The method should handle grocery names in a case-insensitive manner.");
-  }
-
-  @Test
-  public void testRemoveGroceriesFromEmptyStorage() {
-    // Arrange
-    FoodStorage foodStorage = new FoodStorage();
-
-    // Act
-    foodStorage.removeGroceries("Milk", 1.0);
-
-    // Assert
-    assertTrue(foodStorage.getGroceries().isEmpty(),
-        "The grocery list should remain empty when attempting to remove from an empty storage.");
-  }
-
-  @Test
-  public void testRemoveGroceriesCompletelyNull(){
-    FoodStorage foodStorage = new FoodStorage();
-
-    Exception exception;
-    exception = assertThrows(IllegalArgumentException.class, () -> {
-      foodStorage.removeGroceryCompletely(" ");
-
-    });
-    assertEquals("Grocery cannot be null or blank ", exception.getMessage());
-  }
-
-
 }

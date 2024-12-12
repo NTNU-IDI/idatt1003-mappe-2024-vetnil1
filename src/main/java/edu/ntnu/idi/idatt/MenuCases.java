@@ -7,7 +7,9 @@ import java.util.Scanner;
 
 
 /**
-*create MenuCases class
+ * The {@code MenuCases} class contains methods corresponding to various menu options
+ * in the application. It enables users to manage groceries in a {@code FoodStorage}
+ * and recipes in a {@code Cookbook}.
  */
 public class MenuCases {
   private final FoodStorage foodStorage;
@@ -16,7 +18,12 @@ public class MenuCases {
   Scanner scanner;
 
   /**
-  *constructor MenuCases
+   * Constructs a new {@code MenuCases} instance.
+   *
+   * @param foodStorage the {@code FoodStorage} instance to manage groceries.
+   * @param cookbook    the {@code Cookbook} instance to manage recipes.
+   * @param currentDate the current date used in the application.
+   * @param scanner     the {@code Scanner} for reading user input.
    */
   public MenuCases(FoodStorage foodStorage, Cookbook cookbook, LocalDate currentDate,
       Scanner scanner) {
@@ -27,7 +34,12 @@ public class MenuCases {
   }
 
 
-
+  /**
+   * Updates the current date used by the application.
+   *
+   * @param newDate the new date to set. Must not be {@code null}.
+   * @throws IllegalArgumentException if {@code newDate} is {@code null}.
+   */
 
   public void setCurrentDate(LocalDate newDate) {
     if (newDate == null) {
@@ -37,8 +49,9 @@ public class MenuCases {
   }
 
   /**
-  *case 1 method addGroceries enables the user to input the values of a grocery
-  *they want to add to the food storage
+   * Allows the user to add a grocery item to the food storage.
+   *
+   * @param scanner the {@code Scanner} for reading user input.
    */
   public void addGroceries(Scanner scanner) {
     System.out.println("Enter grocery name: ");
@@ -65,9 +78,12 @@ public class MenuCases {
     System.out.println("Grocery added: " + name);
   }
   /**
-  *case 2 method enables the user to remove a specific
-  *amount of a grocery from the food storage
+   * Allows the user to remove a specific quantity of a grocery from the food storage.
+   *
+   * @param scanner the {@code Scanner} for reading user input.
+   * @throws IllegalArgumentException if the quantity is invalid or exceeds the available amount.
    */
+
   public void removeGroceries(Scanner scanner) {
     System.out.println("Enter grocery name: ");
     String name = scanner.nextLine();
@@ -94,15 +110,16 @@ public class MenuCases {
   }
 
   /**
-  *case 3 method enables the user to remove a grocery
-  *form the food storage completely just by choosing
-  *the name of the grocery
+   * Removes a grocery completely from the food storage by its name.
+   *
+   * @param scanner the {@code Scanner} for reading user input.
+   * @throws IllegalArgumentException if the grocery name is {@code null} or blank.
    */
   public void removeGroceryCompletely(Scanner scanner) {
     System.out.println("Enter grocery name: ");
     String name = scanner.nextLine();
 
-    Grocery grocery = foodStorage.getGrocery(name);
+
     if (name == null || name.isBlank()) {
       throw new IllegalArgumentException("Grocery cannot be null or blank");
     }
@@ -111,10 +128,12 @@ public class MenuCases {
     System.out.println("Grocery " + name + " removed from food storage.\n");
   }
 
- /**
- *case 7 method enables the user to manually change
- *the date the program uses to check for expired food
-  */
+  /**
+   * Allows the user to manually change the application's current date.
+   *
+   * @param scanner the {@code Scanner} for reading user input.
+   * @return the updated current date.
+   */
   public LocalDate changeCurrentDate(Scanner scanner) {
     System.out.print("Enter new current date (yyyy-mm-dd): ");
     String newDateStr = scanner.nextLine();
@@ -127,15 +146,15 @@ public class MenuCases {
       System.out.println("Invalid date format. Please try again. \n");
       System.out.println("Would you like to try again? (yes / no) ");
       if (scanner.nextLine().equals("yes")) {
-      return changeCurrentDate(scanner);
+        return changeCurrentDate(scanner);
       }
     }
     return currentDate;
   }
   /**
-  *case 9 method enables the user to create a
-  *new recipe to put in the cookbook
+   * Enables the user to create a new recipe and add it to the cookbook.
    */
+
   public void createNewRecipe() {
     System.out.println("Enter the name of the recipe:");
     String recipeName = scanner.nextLine();
@@ -180,8 +199,9 @@ public class MenuCases {
   /**
   *case 10 method enables the user to check if a
   *recipe from the cookbook can be prepared from
-  *the different groceries in the food storage
+  *the different groceries in the food storage.
    */
+
   public void checkIfRecipeCanBePrepared() {
     System.out.println("Enter the name of the recipe to check:");
     String recipeName = scanner.nextLine();
@@ -204,10 +224,11 @@ public class MenuCases {
     }
   }
   /**
-  *case 11 method helps the user by suggesting
+  *helps the user by suggesting
   *different recipes the user can make with the
-  *groceries already in the food storage
+  *groceries already in the food storage.
    */
+
   public void suggestRecipes() {
     List<Recipe> suggestedRecipes = new ArrayList<>();
     for (Recipe recipe : cookbook.getRecipes()) {
@@ -226,10 +247,10 @@ public class MenuCases {
     }
   }
   /**
-  *case 11 method enables the user to pick a
-  *recipe from the cookbook and scale the ingredients
-  *to the wanted portion size
+  *enables the user to pick a recipe from the cookbook and scale the ingredients
+  *to the wanted portion size.
    */
+
   public void pickAndScaleRecipe() {
     // Step 1: List all recipes
     System.out.println("Available recipes:");
@@ -279,19 +300,21 @@ public class MenuCases {
     }
   }
   /**
-  *case 5 method prints out expired groceries in the food storage
-  *based on the current date which the user can manually change
-  *by using method changeCurrentDate case 7
+   * Lists all expired groceries in the food storage.
+   *
+   * @param currentDate the current date to check for expiration.
    */
+
   public void listExpiredGroceries(LocalDate currentDate) {
     System.out.println("Listing all expired groceries:");
     foodStorage.listExpiredGroceries(currentDate);
   }
   /**
-  *case 4 method prints out non-expired groceries in the food storage
-  *based on the current date which the user can manually change
-  *by using method changeCurrentDate case 7
+   * Lists all non-expired groceries in the food storage.
+   *
+   * @param currentDate the current date to check for expiration.
    */
+
   public void listGroceries(LocalDate currentDate) {
     System.out.println("Listing all groceries in storage:");
     foodStorage.listGroceries(currentDate);
@@ -299,19 +322,21 @@ public class MenuCases {
   /**
   *case 8 method enables the user to search for a specific
   *grocery in the food storage which then prints out all info
-  *about this grocery
+  *about this grocery.
    */
+
   public void searchGroceryByName() {
     System.out.println("Enter the name of the grocery to search for:");
     String searchName = scanner.nextLine();
     foodStorage.searchGroceryByName(searchName);
   }
   /**
-  *case 6 method prints out the total value of all the non-expired
-  *groceries in the food storage
+  *prints out the total value of all the non-expired
+  *groceries in the food storage.
    */
+
   public void getTotalValue() {
-    double totalValue = foodStorage.getTotalValue(currentDate);  // Get the total value from FoodStorage
+    double totalValue = foodStorage.getTotalValue(currentDate);
     System.out.println("Total value of groceries in storage (excluding expired food): "
         + totalValue + " NOK \n");
   }
@@ -319,11 +344,13 @@ public class MenuCases {
   *case 13 method adds a couple pre-set groceries and recipes to
   *the food storage and cookbook, which might save the user some
   *time from having to manually add every data if they want to
-  *test the program. The recipes and groceries are listed bellow
+  *test the program. The recipes and groceries are listed bellow.
    */
+
   public void addDummyData() {
     System.out.println();
-    System.out.println("Demo data added. Now you have a couple ingredients and recipes to work with. \n");
+    System.out.println("Demo data added. "
+        + "Now you have a couple ingredients and recipes to work with. \n");
     // Pre-set items
     foodStorage.addGrocery(new Grocery("Milk", 1.0, "liters",
         LocalDate.of(2024, 12, 20), 10.0));
@@ -340,18 +367,16 @@ public class MenuCases {
     foodStorage.addGrocery(new Grocery("Butter", 0.5, "kg",
         LocalDate.of(2024, 12, 26), 50.0));
 
-    /**
-     * Pre-set recipes in the cookbook
-     */
+
 
     Recipe pancakes = new Recipe("Pancakes");
     pancakes.setDescription("A classic breakfast dish that is light, fluffy, and delicious.");
     pancakes.setProcedure(
-        "1. Mix the dry ingredients in a bowl.\n" +
-            "2. In a separate bowl, whisk the wet ingredients together.\n" +
-            "3. Gradually combine the wet and dry ingredients to form a smooth batter.\n" +
-            "4. Heat a skillet and cook the pancakes until golden on both sides.\n" +
-            "5. Serve with syrup, butter, or your favorite toppings."
+        "1. Mix the dry ingredients in a bowl.\n"
+            + "2. In a separate bowl, whisk the wet ingredients together.\n"
+            + "3. Gradually combine the wet and dry ingredients to form a smooth batter.\n"
+            + "4. Heat a skillet and cook the pancakes until golden on both sides.\n"
+            + "5. Serve with syrup, butter, or your favorite toppings."
     );
     pancakes.addIngredient("Butter", 0.025, "kg");
     pancakes.addIngredient("Milk", 0.1, "liter");
@@ -366,10 +391,10 @@ public class MenuCases {
     omelette.setDescription("A quick and nutritious egg dish perfect for breakfast"
         + " or a light meal.");
     omelette.setProcedure(
-        "1. Crack the eggs into a bowl and beat them until smooth.\n" +
-            "2. Add a splash of milk, salt, and pepper to taste.\n" +
-            "3. Heat butter in a pan and pour in the egg mixture.\n" +
-            "4. Cook until the omelette is set, then fold and serve."
+        "1. Crack the eggs into a bowl and beat them until smooth.\n"
+            + "2. Add a splash of milk, salt, and pepper to taste.\n"
+            + "3. Heat butter in a pan and pour in the egg mixture.\n"
+            + "4. Cook until the omelette is set, then fold and serve."
     );
     omelette.addIngredient("Eggs", 2.0, "amount");
     omelette.addIngredient("Milk", 0.03, "liter");
@@ -381,11 +406,11 @@ public class MenuCases {
     Recipe pyttIPanne = new Recipe("Pytt i Panne");
     pyttIPanne.setDescription("A traditional Scandinavian dish made with diced potatoes and meat.");
     pyttIPanne.setProcedure(
-        "1. Dice the potatoes, sausage, and vegetables.\n" +
-            "2. Heat butter in a pan and fry the potatoes until golden.\n" +
-            "3. Add the sausage and vegetables, seasoning with salt and pepper.\n" +
-            "4. Cook until everything is heated through and slightly crispy.\n" +
-            "5. Serve hot with a fried egg on top, if desired."
+        "1. Dice the potatoes, sausage, and vegetables.\n"
+            + "2. Heat butter in a pan and fry the potatoes until golden.\n"
+            + "3. Add the sausage and vegetables, seasoning with salt and pepper.\n"
+            + "4. Cook until everything is heated through and slightly crispy.\n"
+            + "5. Serve hot with a fried egg on top, if desired."
     );
     pyttIPanne.addIngredient("Sausage", 1.0, "amount");
     pyttIPanne.addIngredient("Butter", 0.003, "kg");
@@ -397,15 +422,17 @@ public class MenuCases {
     cookbook.addRecipe(pyttIPanne);
   }
   /**
-  *case 14 method prints out all info on chosen recipe
+  *prints out all info on chosen recipe.
    */
+
   public void showRecipe() {
     System.out.println("Choose recipe to show:");
     String recipeName = scanner.nextLine();
 
-    for(Recipe recipe : cookbook.getRecipes()) {
+    for (Recipe recipe : cookbook.getRecipes()) {
       if (recipe.getName().equalsIgnoreCase(recipeName)) {
-        System.out.println("Portion size: " + recipe.getPortionSize() + "\n" + recipe.getPrettyString());
+        System.out.println("Portion size: " + recipe.getPortionSize()
+            + "\n" + recipe.getPrettyString());
         return;
       }
     }
@@ -413,9 +440,10 @@ public class MenuCases {
   }
 
   /**
-  *case 10 method checks if chosen recipe can be prepared with
-  *the current groceries in the food storage
+  *checks if chosen recipe can be prepared with
+  *the current groceries in the food storage.
    */
+
   public boolean canPrepareRecipe(Recipe recipe) {
     for (Grocery ingredient : recipe.getIngredients()) {
       double requiredQuantity = ingredient.getQuantity();
@@ -435,9 +463,9 @@ public class MenuCases {
     return true; // All ingredients are available in sufficient quantity
   }
   /**
-  *case 15 method prints out the names of all the available
-  *recipes in the cookbook
+   * Displays the names of all recipes in the cookbook.
    */
+
   public void showCookbook() {
     System.out.println("Recipes in the cookbook:");
     if (cookbook.getRecipes().isEmpty()) {
@@ -452,9 +480,11 @@ public class MenuCases {
 
   /**
   *a method which enables me to test addGrocery without having to use
-  *scanner
+  *scanner.
    */
-  public void addGrocery(String name, double quantity, String unit, LocalDate expirationDate, double pricePerUnit) {
+
+  public void addGrocery(String name, double quantity, String unit,
+      LocalDate expirationDate, double pricePerUnit) {
     if (name == null || name.isBlank()) {
       throw new IllegalArgumentException("Grocery name must not be null or empty.");
     }

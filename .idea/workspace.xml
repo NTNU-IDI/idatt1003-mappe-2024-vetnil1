@@ -5,12 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43532a49-cf72-4680-85d2-fd3449b749ba" name="Changes" comment="add Grocery tests and some Recipe tests">
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/idi/idatt/MenuCasesTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/idi/idatt/FoodStorageTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodWaste/.idea/checkstyle-idea.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodWaste/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/Cookbook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/Cookbook.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/FoodStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/FoodStorage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/Grocery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/Grocery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/MenuCases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/MenuCases.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/Recipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/TextUserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/TextUserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/idi/idatt/GroceryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/idi/idatt/GroceryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/idi/idatt/MenuCasesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/idi/idatt/MenuCasesTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/idi/idatt/RecipeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/idi/idatt/RecipeTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,9 +47,18 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "JUnit.FoodStorageTest.executor": "Run",
+    "JUnit.FoodStorageTest.testAddGrocery.executor": "Run",
+    "JUnit.FoodStorageTest.testGetGroceryExisting.executor": "Run",
+    "JUnit.FoodStorageTest.testGetGroceryNonExistent.executor": "Run",
+    "JUnit.FoodStorageTest.testGetTotalValue.executor": "Run",
+    "JUnit.FoodStorageTest.testListExpiredGroceries.executor": "Run",
+    "JUnit.FoodStorageTest.testRemoveGroceriesPartial.executor": "Run",
+    "JUnit.FoodStorageTest.testRemoveGroceriesPartialNegative.executor": "Run",
     "JUnit.GroceryTest.executor": "Run",
     "JUnit.GroceryTest.testNegativeGroceryExpirationDateSetters.executor": "Run",
     "JUnit.GroceryTest.testNegativeGroceryGetExpirationDate.executor": "Run",
+    "JUnit.GroceryTest.testNegativeGroceryGetName.executor": "Run",
     "JUnit.GroceryTest.testNegativeGroceryGetQuantity.executor": "Run",
     "JUnit.GroceryTest.testNegativeGroceryGetUnit.executor": "Run",
     "JUnit.GroceryTest.testNegativeGroceryGetters.executor": "Run",
@@ -64,7 +79,9 @@
     "JUnit.MenuCasesTest.testRemoveNonExistentGrocery.executor": "Run",
     "JUnit.MenuCasesTest.testSetCurrentDateNegativeNull.executor": "Run",
     "JUnit.MenuCasesTest.testSetCurrentDatePositive.executor": "Run",
+    "JUnit.RecipeTest.executor": "Run",
     "JUnit.RecipeTest.testAddIngredientNegative.executor": "Run",
+    "JUnit.RecipeTest.testAddIngredientNegativeQuantity.executor": "Run",
     "JUnit.RecipeTest.testAddIngredientNullName.executor": "Run",
     "JUnit.RecipeTest.testAddIngredientNullUnit.executor": "Run",
     "JUnit.RecipeTest.testAddIngredientPositive.executor": "Run",
@@ -92,7 +109,7 @@
       <recent name="C:\Users\Bruker\OneDrive - NTNU\Skrivebord\idatt1003-mappe-2024-vetnil1\foodWaste" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MenuCasesTest.testRemoveGroceriesCompletelyNull">
+  <component name="RunManager" selected="JUnit.MenuCasesTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.ntnu.idi.idatt.Main" />
       <module name="foodWaste" />
@@ -106,7 +123,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MenuCasesTest.testRemoveGroceriesCompletelyNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FoodStorageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="foodWaste" />
       <extension name="coverage">
         <pattern>
@@ -115,14 +132,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="edu.ntnu.idi.idatt" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.idi.idatt.MenuCasesTest" />
-      <option name="METHOD_NAME" value="testRemoveGroceriesCompletelyNull" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.idi.idatt.FoodStorageTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MenuCasesTest.testRemoveGroceriesExceedsQuantity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GroceryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="foodWaste" />
       <extension name="coverage">
         <pattern>
@@ -131,14 +147,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="edu.ntnu.idi.idatt" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.idi.idatt.MenuCasesTest" />
-      <option name="METHOD_NAME" value="testRemoveGroceriesExceedsQuantity" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.idi.idatt.GroceryTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MenuCasesTest.testRemoveGroceriesFromEmptyStorage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MenuCasesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="foodWaste" />
       <extension name="coverage">
         <pattern>
@@ -148,13 +163,12 @@
       </extension>
       <option name="PACKAGE_NAME" value="edu.ntnu.idi.idatt" />
       <option name="MAIN_CLASS_NAME" value="edu.ntnu.idi.idatt.MenuCasesTest" />
-      <option name="METHOD_NAME" value="testRemoveGroceriesFromEmptyStorage" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MenuCasesTest.testRemoveGroceriesInvalidQuantity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RecipeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="foodWaste" />
       <extension name="coverage">
         <pattern>
@@ -163,9 +177,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="edu.ntnu.idi.idatt" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.idi.idatt.MenuCasesTest" />
-      <option name="METHOD_NAME" value="testRemoveGroceriesInvalidQuantity" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.idi.idatt.RecipeTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -269,11 +282,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MenuCasesTest.testRemoveGroceriesCompletelyNull" />
+        <item itemvalue="JUnit.MenuCasesTest" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.MenuCasesTest.testRemoveGroceriesInvalidQuantity" />
-        <item itemvalue="JUnit.MenuCasesTest.testRemoveGroceriesExceedsQuantity" />
-        <item itemvalue="JUnit.MenuCasesTest.testRemoveGroceriesFromEmptyStorage" />
+        <item itemvalue="JUnit.RecipeTest" />
+        <item itemvalue="JUnit.GroceryTest" />
+        <item itemvalue="JUnit.FoodStorageTest" />
       </list>
     </recent_temporary>
   </component>
@@ -304,6 +317,7 @@
       <workItem from="1733398196662" duration="20133000" />
       <workItem from="1733835687924" duration="2064000" />
       <workItem from="1733839129295" duration="42054000" />
+      <workItem from="1733974665091" duration="7052000" />
     </task>
     <task id="LOCAL−00001" summary="add test folder and pom.xml. fix .gitignore">
       <option name="closed" value="true" />

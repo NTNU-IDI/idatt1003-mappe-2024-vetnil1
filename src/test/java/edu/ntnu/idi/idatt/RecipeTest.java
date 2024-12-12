@@ -1,12 +1,20 @@
 package edu.ntnu.idi.idatt;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Unit tests for the {@code Recipe} class.
+ * This test suite ensures the correctness of operations for managing recipes, including
+ * adding ingredients, scaling ingredients, and generating formatted recipe output.
+ */
 public class RecipeTest {
+
+  /**
+   * Tests adding a valid ingredient to the recipe.
+   */
   @Test
   public void testAddIngredientPositive() {
     Recipe recipe = new Recipe("Test Recipe");
@@ -16,48 +24,63 @@ public class RecipeTest {
     List<Grocery> ingredients = recipe.getIngredients();
 
     assertEquals(1, ingredients.size(),
-        "Ingredient list should contain 1 ingredient");
-    Grocery addedIngredient = ingredients.getFirst();
+        "Ingredient list should contain 1 ingredient.");
+    Grocery addedIngredient = ingredients.get(0);
     assertEquals("Sugar", addedIngredient.getName(),
-        "Ingredient name should match");
+        "Ingredient name should match.");
     assertEquals(1.5, addedIngredient.getQuantity(),
-        "Ingredient quantity should match");
+        "Ingredient quantity should match.");
     assertEquals("kg", addedIngredient.getUnit(),
-        "Ingredient unit should match");
-
+        "Ingredient unit should match.");
   }
+
+  /**
+   * Tests adding an ingredient with a null name throws an exception.
+   */
   @Test
   public void testAddIngredientNullName() {
     Recipe recipe = new Recipe("Test Recipe");
 
     Exception exception = assertThrows(IllegalArgumentException.class, () ->
-        recipe.addIngredient(null,1.0,"kg"));
-    assertEquals("Recipe name should not be null", exception.getMessage());
+        recipe.addIngredient(null, 1.0, "kg"));
+    assertEquals("Ingredient name must not be null or blank.", exception.getMessage());
   }
 
+  /**
+   * Tests adding an ingredient with a negative quantity throws an exception.
+   */
   @Test
   public void testAddIngredientNegativeQuantity() {
     Recipe recipe = new Recipe("Test Recipe");
-    Exception exception = assertThrows(IllegalArgumentException.class, () -> recipe.addIngredient("Sugar", -1.5, "kg"));
-    assertEquals("Recipe quantity cannot be zero or less",
+    Exception exception = assertThrows(IllegalArgumentException.class, () ->
+        recipe.addIngredient("Sugar", -1.5, "kg"));
+    assertEquals("Ingredient quantity must be greater than zero.",
         exception.getMessage());
-
   }
 
+  /**
+   * Tests adding an ingredient with a null unit throws an exception.
+   */
   @Test
   public void testAddIngredientNullUnit() {
     Recipe recipe = new Recipe("Test Recipe");
     Exception exception = assertThrows(IllegalArgumentException.class, () ->
         recipe.addIngredient("Sugar", 1.5, null));
-    assertEquals("Recipe unit cannot be null", exception.getMessage());
+    assertEquals("Ingredient unit must not be null or blank.", exception.getMessage());
   }
 
+  /**
+   * Tests retrieving the recipe name.
+   */
   @Test
   public void testPositiveGetName() {
     Recipe recipe = new Recipe("Test Recipe");
     assertEquals(recipe.getName(), "Test Recipe");
   }
 
+  /**
+   * Tests retrieving and setting the portion size of a recipe.
+   */
   @Test
   public void testPositiveGetPortionSize() {
     Recipe recipe = new Recipe("Test Recipe");
@@ -65,6 +88,9 @@ public class RecipeTest {
     assertEquals(recipe.getPortionSize(), 1);
   }
 
+  /**
+   * Tests retrieving ingredients added to a recipe.
+   */
   @Test
   public void testGetIngredientsPositive() {
     // Arrange
@@ -78,20 +104,20 @@ public class RecipeTest {
 
     // Assert
     assertEquals(3, ingredients.size(), "The ingredient list should contain 3 items.");
-
     assertEquals("Sugar", ingredients.get(0).getName(), "First ingredient name should be 'Sugar'.");
     assertEquals(1.5, ingredients.get(0).getQuantity(), "First ingredient quantity should be 1.5.");
     assertEquals("kg", ingredients.get(0).getUnit(), "First ingredient unit should be 'kg'.");
-
     assertEquals("Flour", ingredients.get(1).getName(), "Second ingredient name should be 'Flour'.");
     assertEquals(2.0, ingredients.get(1).getQuantity(), "Second ingredient quantity should be 2.0.");
     assertEquals("kg", ingredients.get(1).getUnit(), "Second ingredient unit should be 'kg'.");
-
     assertEquals("Eggs", ingredients.get(2).getName(), "Third ingredient name should be 'Eggs'.");
     assertEquals(3, ingredients.get(2).getQuantity(), "Third ingredient quantity should be 3.");
     assertEquals("amount", ingredients.get(2).getUnit(), "Third ingredient unit should be 'amount'.");
   }
 
+  /**
+   * Tests scaling ingredients for a recipe with a valid new portion size.
+   */
   @Test
   public void testScaleIngredientsPositive() {
     // Arrange
@@ -105,16 +131,17 @@ public class RecipeTest {
 
     // Assert
     assertEquals(2, scaledIngredients.size(), "The ingredient list should contain 2 items.");
-
     assertEquals("Sugar", scaledIngredients.get(0).getName(), "First ingredient name should be 'Sugar'.");
     assertEquals(4.0, scaledIngredients.get(0).getQuantity(), "Scaled quantity of Sugar should be 4.0.");
     assertEquals("kg", scaledIngredients.get(0).getUnit(), "Unit of Sugar should remain 'kg'.");
-
     assertEquals("Flour", scaledIngredients.get(1).getName(), "Second ingredient name should be 'Flour'.");
     assertEquals(2.0, scaledIngredients.get(1).getQuantity(), "Scaled quantity of Flour should be 2.0.");
     assertEquals("kg", scaledIngredients.get(1).getUnit(), "Unit of Flour should remain 'kg'.");
   }
 
+  /**
+   * Tests that scaling ingredients with invalid portion sizes throws an exception.
+   */
   @Test
   public void testScaleIngredientsInvalidNewPortionSize() {
     // Arrange
@@ -123,18 +150,19 @@ public class RecipeTest {
     recipe.addIngredient("Butter", 1.0, "kg");
 
     // Act and Assert for newPortionSize = 0
-    Exception exceptionZero = assertThrows(IllegalArgumentException.class, () -> {
-      recipe.scaleIngredients(0); // Invalid new portion size
-    });
+    Exception exceptionZero = assertThrows(IllegalArgumentException.class, () ->
+        recipe.scaleIngredients(0)); // Invalid new portion size
     assertEquals("New portion size must be greater than zero.", exceptionZero.getMessage());
 
     // Act and Assert for newPortionSize = -1
-    Exception exceptionNegative = assertThrows(IllegalArgumentException.class, () -> {
-      recipe.scaleIngredients(-1); // Invalid new portion size
-    });
+    Exception exceptionNegative = assertThrows(IllegalArgumentException.class, () ->
+        recipe.scaleIngredients(-1)); // Invalid new portion size
     assertEquals("New portion size must be greater than zero.", exceptionNegative.getMessage());
   }
 
+  /**
+   * Tests generating a formatted recipe string using {@code getPrettyString()}.
+   */
   @Test
   public void testGetPrettyString() {
     // Arrange
@@ -149,6 +177,7 @@ public class RecipeTest {
             "2. Add wet ingredients and mix into a smooth batter.\n" +
             "3. Cook on a skillet until golden brown."
     );
+
     // Expected formatted string
     String expected = "Recipe: Pancakes\n" +
         "Description: A classic breakfast dish that is light and fluffy.\n" +
@@ -167,7 +196,4 @@ public class RecipeTest {
     // Assert
     assertEquals(expected, actual, "The formatted recipe string should match the expected output.");
   }
-
-  
-
 }

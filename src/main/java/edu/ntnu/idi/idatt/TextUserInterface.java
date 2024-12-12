@@ -1,23 +1,37 @@
 package edu.ntnu.idi.idatt;
-import java.time.LocalDate;
-import java.util.Scanner;
-import java.util.Locale;
 
+import java.time.LocalDate;
+import java.util.Locale;
+import java.util.Scanner;
+
+/**
+ * The {@code TextUserInterface} class represents the main user
+ * interface for interacting with the program.
+ * It provides a text-based menu system to manage groceries and recipes,
+ * allowing users to perform various operations.
+ */
 public class TextUserInterface {
   private FoodStorage foodStorage;
   private Cookbook cookbook;
   private LocalDate currentDate;
   private Scanner scanner;
 
-  // Constructor to initialize the Scanner with Locale.US
+  /**
+   * Initializes the application by setting up the {@code Scanner},
+   * {@code FoodStorage}, and {@code Cookbook}.
+   * The {@code Locale.US} is used to ensure consistent parsing of decimal values.
+   */
   public void init() {
     this.scanner = new Scanner(System.in);
-    this.currentDate = LocalDate.now(); // Default to the real current date
+    this.currentDate = LocalDate.now();
     this.foodStorage = new FoodStorage();
     this.cookbook = new Cookbook();
-    this.scanner.useLocale(Locale.US); // Force Scanner to use US locale for decimal parsing
+    this.scanner.useLocale(Locale.US);
   }
 
+  /**
+   * Displays the main menu options to the user.
+   */
   public void showMenu() {
     System.out.println();
     System.out.println("1. Add grocery");
@@ -39,6 +53,11 @@ public class TextUserInterface {
     System.out.println("Current date: " + currentDate + "\n");
   }
 
+  /**
+   * Starts the text-based user interface.
+   * This method loops through the menu options, allowing the user to select actions.
+   * It creates an instance of {@code MenuCases} to handle menu-specific logic.
+   */
   public void start() {
     MenuCases menuCases = new MenuCases(foodStorage, cookbook, currentDate, scanner);
     int choice = -1;
@@ -108,4 +127,3 @@ public class TextUserInterface {
     scanner.close();
   }
 }
-
