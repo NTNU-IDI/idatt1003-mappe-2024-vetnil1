@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43532a49-cf72-4680-85d2-fd3449b749ba" name="Changes" comment="add Grocery tests and some Recipe tests">
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/idi/idatt/FoodStorageTest.java" afterDir="false" />
+    <list default="true" id="43532a49-cf72-4680-85d2-fd3449b749ba" name="Changes" comment="add tests and javadoc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/foodWaste/.idea/checkstyle-idea.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/foodWaste/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/Cookbook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/Cookbook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/FoodStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/FoodStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/Grocery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/Grocery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/MenuCases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/MenuCases.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/Recipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/TextUserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/idi/idatt/TextUserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/idi/idatt/GroceryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/idi/idatt/GroceryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/idi/idatt/MenuCasesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/idi/idatt/MenuCasesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/idi/idatt/RecipeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/idi/idatt/RecipeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -317,7 +306,7 @@
       <workItem from="1733398196662" duration="20133000" />
       <workItem from="1733835687924" duration="2064000" />
       <workItem from="1733839129295" duration="42054000" />
-      <workItem from="1733974665091" duration="7052000" />
+      <workItem from="1733974665091" duration="7836000" />
     </task>
     <task id="LOCAL−00001" summary="add test folder and pom.xml. fix .gitignore">
       <option name="closed" value="true" />
@@ -382,7 +371,14 @@
       <option name="presentableId" value="LOCAL−00009" />
       <updated>1733942586835</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL−00010" summary="add tests and javadoc">
+      <option name="closed" value="true" />
+      <created>1733982033617</created>
+      <option name="number" value="LOCAL−00010" />
+      <option name="presentableId" value="LOCAL−00010" />
+      <updated>1733982033617</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,7 +394,8 @@
     <MESSAGE value="fixed portion sizes&#10;add description and procedure of recipes" />
     <MESSAGE value="add showCookbook case" />
     <MESSAGE value="add Grocery tests and some Recipe tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Grocery tests and some Recipe tests" />
+    <MESSAGE value="add tests and javadoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="add tests and javadoc" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
